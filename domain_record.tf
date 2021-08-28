@@ -1,6 +1,6 @@
 data "aws_route53_zone" "selected" {
   name         = "assessments.coda.run."
-  public_zone = true
+
 }
 
 resource "aws_route53_record" "www" {

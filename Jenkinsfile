@@ -1,11 +1,12 @@
 pipeline {
     agent any
       stages {
-          stage('RunAnsiblePlaybook'){
+          stage('Run terraform Script'){
                 steps {
                   
-                  sh "sudo  cp -rvf * /home/ec2-user"
-                  sh "sudo /usr/local/bin/ansible-playbook /home/ec2-user/main.yml"
+                  sh "sudo  cp -rvf * /root/ter-test"
+                  sh "sudo /usr/local/bin/terraform init -chdir /root/ter-test"
+                  sh "sudo /usr/local/bin/terraform apply --auto-approve -chdir /root/ter-test"
                     
                 }
         }
